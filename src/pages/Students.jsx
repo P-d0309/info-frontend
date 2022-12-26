@@ -1,7 +1,9 @@
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
+  Grid,
   IconButton,
   Table,
   TableBody,
@@ -52,26 +54,49 @@ function Students() {
       setStudentsData(response);
     });
   };
+
+  const addStudent = () => {
+    dispatch(
+      userActions.studentDetailForm({
+        isOpen: true,
+        isEdit: false,
+        student: {},
+      })
+    );
+  }
   return (
     <>
       <Card>
         <CardHeader title="Students"></CardHeader>
         <CardContent>
-          <TableContainer>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Action</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {students.map((row) => (
-                  <Student student={row} key={row._id} callGetStudents={getStudent} />
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <Grid container>
+            <Grid item sm={12}>
+              <Button onClick={addStudent} variant={'contained'}>
+                Add Student
+              </Button>
+            </Grid>
+            <Grid item sm={12}>
+              <TableContainer>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Name</TableCell>
+                      <TableCell>Action</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {students.map((row) => (
+                      <Student
+                        student={row}
+                        key={row._id}
+                        callGetStudents={getStudent}
+                      />
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
       <StoreStudentDialog />

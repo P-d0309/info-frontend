@@ -52,6 +52,7 @@ const Login = () => {
 
 				localStorage.setItem("user", JSON.stringify(user));
 				dispatch(userActions.login(user));
+				return navigate("students");9
 				
 			})
 			.catch((error) => {

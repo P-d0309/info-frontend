@@ -19,7 +19,13 @@ function Student(props) {
   const { student } = props;
 
     const updateStudent = () => {
-
+      dispatch(
+        userActions.studentDetailForm({
+          isOpen: true,
+          isEdit: true,
+          student: student,
+        })
+      );
     }
 
     const deleteStudent = () => {
