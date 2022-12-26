@@ -36,7 +36,6 @@ function Students() {
   };
 
   useEffect(() => {
-    console.log("🚀 ~ file: Students.jsx:45 ~ Students ~ storedStudents", storedStudents)
     if (storedStudents.length === 0) {
       getStudent();
     } else {
