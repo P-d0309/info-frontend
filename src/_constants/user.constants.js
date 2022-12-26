@@ -3,4 +3,5 @@ export const userConstants = {
   USER_LOGOUT: "USER_LOGOUT",
   SUBJECTS: "SUBJECTS",
   STUDENTS: "STUDENTS",
+  STUDENTS_FORM: "STUDENTS_FORM",
 };

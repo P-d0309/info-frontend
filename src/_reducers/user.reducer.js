@@ -30,3 +30,19 @@ export const subjects = (state = [], action) => {
       return state;
   }
 };
+
+export const studentDataForm = (
+  state = {
+    isOpen: false,
+    isEdit: false,
+    student: {},
+  },
+  action
+) => {
+  switch (action.type) {
+    case userConstants.STUDENTS_FORM:
+      return action.student;
+    default:
+      return state;
+  }
+};

@@ -1,12 +1,18 @@
 import { combineReducers } from "redux";
 
-import { userdetails, students, subjects } from "./user.reducer";
+import {
+  userdetails,
+  students,
+  subjects,
+  studentDataForm,
+} from "./user.reducer";
 
 
 const allReducers = combineReducers({
   userdetails,
   students,
   subjects,
+  studentDataForm,
 });
 
 const rootReducer = (state, action) => {
