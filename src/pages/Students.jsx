@@ -40,6 +40,10 @@ function Students() {
     } else {
       setStudentsData(storedStudents);
     }
+  }, []);
+
+  useEffect(() => {
+    setStudentsData(storedStudents);
   }, [storedStudents]);
 
   const getStudent = () => {

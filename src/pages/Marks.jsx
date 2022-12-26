@@ -17,10 +17,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../_actions/user.actions";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 function Marks() {
   const baseUrl = import.meta.env.VITE_BASE_API_URL;
   const user = useSelector((state) => state.userdetails);
+	const navigate = useNavigate();
 
   const studentsUrl = `${baseUrl}/students`;
 
@@ -48,6 +50,7 @@ function Marks() {
         .then((res) => {
           setSubmitting(false);
           const student = res.data.data;
+          navigate('/results')
         })
         .catch((error) => {
           setSubmitting(false);
