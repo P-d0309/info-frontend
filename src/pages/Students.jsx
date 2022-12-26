@@ -36,15 +36,12 @@ function Students() {
   };
 
   useEffect(() => {
+    console.log("🚀 ~ file: Students.jsx:45 ~ Students ~ storedStudents", storedStudents)
     if (storedStudents.length === 0) {
       getStudent();
     } else {
       setStudentsData(storedStudents);
     }
-  }, []);
-
-  useEffect(() => {
-    setStudentsData(storedStudents);
   }, [storedStudents]);
 
   const getStudent = () => {
@@ -71,7 +68,7 @@ function Students() {
         <CardContent>
           <Grid container>
             <Grid item sm={12}>
-              <Button onClick={addStudent} variant={'contained'}>
+              <Button onClick={addStudent} variant={"contained"}>
                 Add Student
               </Button>
             </Grid>
@@ -99,7 +96,7 @@ function Students() {
           </Grid>
         </CardContent>
       </Card>
-      <StoreStudentDialog />
+      <StoreStudentDialog callGetStudents={getStudent} />
     </>
   );
 }

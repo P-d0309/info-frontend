@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../_actions/user.actions";
 import { Formik, Form } from "formik";
 
-const StoreStudentDialog = () => {
+const StoreStudentDialog = (props) => {
 	const baseUrl = import.meta.env.VITE_BASE_API_URL;
   const user = useSelector((state) => state.userdetails);
 
@@ -70,8 +70,10 @@ const StoreStudentDialog = () => {
 
           dispatch(userActions.studentsData(studentUpdateData));
         } else {
-          students.push(student);
-          dispatch(userActions.studentsData(students));
+          // students.push(student);
+          // dispatch(userActions.studentsData(students));
+          props.callGetStudents();
+
         }
 
         handleClose();
