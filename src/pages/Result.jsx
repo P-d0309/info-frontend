@@ -19,6 +19,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ResultData from "../components/ResultData";
+import { getDownloadedFile } from "../_helpers/store";
 
 function Result() {
 	const baseUrl = import.meta.env.VITE_BASE_API_URL;
@@ -28,12 +29,26 @@ function Result() {
   
   const queryClient = new QueryClient();
   const getResults = async () => {
-    
-    const result = await axios.get(studentsUrl);
+    const token = user.token;
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    const result = await axios.get(studentsUrl, config);
     return result.data.data;
   }
+
   const query = useQuery({ queryKey: ["result"], queryFn: getResults });
 
+  const downloadExcel = async () => {
+    const excelUrl = `${baseUrl}/get-excel`;
+
+    const token = user.token;
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    let data = await axios.get(excelUrl, config);
+    getDownloadedFile(data.data.data, "xlsx");
+  }
   if (query.isLoading) {
     return "Loading";
   } else {
@@ -44,9 +59,9 @@ function Result() {
           <CardContent>
             <Grid container>
               <Grid item sm={12}>
-                {/* <Button onClick={addStudent} variant={"contained"}>
-                Add Student
-              </Button> */}
+                <Button onClick={downloadExcel} variant={"contained"}>
+                  Export Excel Data
+                </Button>
               </Grid>
               <Grid item sm={12}>
                 <TableContainer>
@@ -58,6 +73,7 @@ function Result() {
                         <TableCell>Maths</TableCell>
                         <TableCell>Science</TableCell>
                         <TableCell>Gujarati</TableCell>
+                        <TableCell>Action</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>

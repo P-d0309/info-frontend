@@ -48,7 +48,6 @@ function Marks() {
         .then((res) => {
           setSubmitting(false);
           const student = res.data.data;
-          console.log("🚀 ~ file: Marks.jsx:48 ~ .then ~ student", student);
         })
         .catch((error) => {
           setSubmitting(false);
