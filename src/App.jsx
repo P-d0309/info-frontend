@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Students from "./pages/Students";
+import Result from "./pages/Result";
 import Marks from "./pages/Marks";
 import { Box, Container } from "@mui/material";
 import { useSelector } from "react-redux";
@@ -28,6 +29,11 @@ function App() {
     {
       path: "/students",
       component: <Students />,
+      isPrivate: true,
+    },
+    {
+      path: "/results",
+      component: <Result />,
       isPrivate: true,
     },
   ];

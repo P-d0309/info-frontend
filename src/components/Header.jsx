@@ -45,6 +45,11 @@ const Header = () => {
       name: "Students",
       isPrivate: true,
     },
+    {
+      path: "/results",
+      name: "Results",
+      isPrivate: true,
+    },
   ];
 	return (
 		<Box sx={{ flexGrow: 1 }}>
