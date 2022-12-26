@@ -5,7 +5,6 @@ export const userActions = {
   logout,
   studentDetailForm,
   studentsData,
-  subjectsData,
 };
 
 function login(user) {
@@ -15,11 +14,6 @@ function login(user) {
 function studentsData(students) {
   return { type: userConstants.STUDENTS, students };
 }
-
-function subjectsData(subjects) {
-  return { type: userConstants.SUBJECTS, subjects };
-}
-
 function studentDetailForm(student) {
   return { type: userConstants.STUDENTS_FORM, student };
 }

@@ -3,7 +3,6 @@ import { combineReducers } from "redux";
 import {
   userdetails,
   students,
-  subjects,
   studentDataForm,
 } from "./user.reducer";
 
@@ -11,7 +10,6 @@ import {
 const allReducers = combineReducers({
   userdetails,
   students,
-  subjects,
   studentDataForm,
 });
 

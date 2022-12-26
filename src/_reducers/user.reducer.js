@@ -22,15 +22,6 @@ export const students = (state = [], action) => {
   }
 };
 
-export const subjects = (state = [], action) => {
-	switch (action.type) {
-    case userConstants.SUBJECTS:
-      return action.subjects;
-    default:
-      return state;
-  }
-};
-
 export const studentDataForm = (
   state = {
     isOpen: false,
