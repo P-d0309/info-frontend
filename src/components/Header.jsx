@@ -18,8 +18,6 @@ const Header = () => {
 		const user = localStorage.getItem('user')
 		if (user) {
 			dispatch(userActions.login(JSON.parse(user)));
-		} else {
-			navigate('/login')
 		}
 	}, [])
 
